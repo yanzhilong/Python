@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import csv
 #  淘宝类目字典
 
 cid_dict = {"低帮鞋": "50012906", "高帮": "50012907", "凉鞋": "50011745", "拖鞋": "50011746"}
@@ -114,8 +114,6 @@ skuProps = {
     "1627207": "",  # 颜色
     "20549": "",  # 尺码
 }
-
-# 销售属性的value
 skuProps = {
     "29544": "",  # 49
     "29545": "",  # 50
@@ -132,7 +130,40 @@ skuProps = {
     "29542": "",  # 37
     "671": "",  # 36
     "670": "",  # 35
+    "28341": "", #黑色
+    "28321": "",  # 乳白色
+    "28320": "",  # 白色
+    "4266701": "",  # 米白色
+    "28332": "",  # 浅灰色
+    "3232478": "",  # 深灰
+    "28334": "",  # 灰色
+    "28330": "",  # 银色
+    "28326": "",  # 红色
+    "28331": "",  # 卡其色
+    "28328": "",  # 金色
+    "28324": "",  # 黄色
+    "3707775": "",  # 宝蓝色
+    "28340": "",  # 深蓝色
+    "28338": "",  # 蓝色
+    "129819": "",  # 咖啡色
+    "30158": "",  # 浅棕色
+    "6588790": "",  # 深棕色
+    "132069": "",  # 褐色
+    "3232480": "",  # 粉红色
+    "4950473": "桔红色", #
+    "28327": "",  # 酒红色
+    "3232483": "",  # 军绿色
+    "28335": "",  # 绿色
+    "3455405": "",  # 青色
+    "3232484": "",  # 天蓝色
+    "5483105": "",  # 湖蓝色
+    "3232479": "",  # 深紫色
+    "5167321": "",  # 紫红色
+    "28329": "",  # 紫色
+    "-1001": "",  # 自定义颜色1 需要在自定义属性项中添加
+    "-1002": "",  # 自定义颜色2 同上
 }
+# 销售属性的value
 
 
 # 第一行英文标题
@@ -202,12 +233,211 @@ rows_eng = {
     "o2o_bind_service": "",
 }
 
+rows_eng_cn = {
+    "title": "宝贝名称",
+    "cid": "宝贝类目",
+    "seller_cids": "店铺类目",
+    "stuff_status": "新旧程度",
+    "location_state": "省",
+    "location_city": "城市",
+    "item_type": "出售方式",
+    "price": "宝贝价格",
+    "auction_increment": "加价幅度",
+    "num": "宝贝数量",
+    "valid_thru": "有效期",
+    "freight_payer": "运费承担",
+    "post_fee": "平邮",
+    "ems_fee": "EMS",
+    "express_fee": "快递",
+    "has_invoice": "发票",
+    "has_warranty": "保修",
+    "approve_status": "放入仓库",
+    "has_showcase": "橱窗推荐",
+    "list_time": "开始时间",
+    "description": "宝贝描述",
+    "cateProps": "宝贝属性",
+    "postage_id": "邮费模版ID",
+    "has_discount": "会员打折",
+    "modified": "修改时间",
+    "upload_fail_msg": "上传状态",
+    "picture_status": "图片状态",
+    "auction_point": "返点比例",
+    "picture": "新图片",
+    "video": "视频",
+    "skuProps": "销售属性组合",
+    "inputPids": "用户输入ID串",
+    "inputValues": "用户输入名 - 值对",
+    "outer_id": "商家编码",
+    "propAlias": "销售属性别名",
+    "auto_fill": "代充类型",
+    "num_id": "数字ID",
+    "local_cid": "本地ID",
+    "navigation_type": "宝贝分类",
+    "user_name": "用户名称",
+    "syncStatus": "宝贝状态",
+    "is_lighting_consigment": "闪电发货",
+    "is_xinpin": "新品",
+    "foodparame": "食品专项",
+    "features": "尺码库",
+    "buyareatype": "采购地",
+    "global_stock_type": "库存类型",
+    "global_stock_country": "国家地区",
+    "sub_stock_type": "库存计数",
+    "item_size": "物流体积",
+    "item_weight": "物流重量",
+    "sell_promise": "退换货承诺",
+    "custom_design_flag": "定制工具",
+    "wireless_desc": "无线详情",
+    "barcode": "商品条形码",
+    "sku_barcode": "sku 条形码",
+    "newprepay": "7天退货",
+    "subtitle": "宝贝卖点",
+    "cpv_memo": "属性值备注",
+    "input_custom_cpv": "自定义属性值",
+    "qualification": "商品资质",
+    "add_qualification": "增加商品资质",
+    "o2o_bind_service": "关联线下服务",
+}
+
+rows_eng_value = {
+    "title": "",
+    "cid": "",
+    "seller_cids": "",
+    "stuff_status": "",
+    "location_state": "",
+    "location_city": "",
+    "item_type": "",
+    "price": "",
+    "auction_increment": "",
+    "num": "",
+    "valid_thru": "",
+    "freight_payer": "",
+    "post_fee": "",
+    "ems_fee": "",
+    "express_fee": "",
+    "has_invoice": "",
+    "has_warranty": "",
+    "approve_status": "",
+    "has_showcase": "",
+    "list_time": "",
+    "description": "",
+    "cateProps": "",
+    "postage_id": "",
+    "has_discount": "",
+    "modified": "",
+    "upload_fail_msg": "",
+    "picture_status": "",
+    "auction_point": "",
+    "picture": "",
+    "video": "",
+    "skuProps": "",
+    "inputPids": "",
+    "inputValues": "",
+    "outer_id": "",
+    "propAlias": "",
+    "auto_fill": "",
+    "num_id": "",
+    "local_cid": "",
+    "navigation_type": "",
+    "user_name": "",
+    "syncStatus": "",
+    "is_lighting_consigment": "",
+    "is_xinpin": "",
+    "foodparame": "",
+    "features": "",
+    "buyareatype": "",
+    "global_stock_type": "",
+    "global_stock_country": "",
+    "sub_stock_type": "",
+    "item_size": "",
+    "item_weight": "",
+    "sell_promise": "",
+    "custom_design_flag": "",
+    "wireless_desc": "",
+    "barcode": "",
+    "sku_barcode": "",
+    "newprepay": "",
+    "subtitle": "",
+    "cpv_memo": "",
+    "input_custom_cpv": "",
+    "qualification": "",
+    "add_qualification": "",
+    "o2o_bind_service": "",
+}
+
+
+rows_eng_list = [
+    "title",
+    "cid",
+    "seller_cids",
+    "stuff_status",
+    "location_state",
+    "location_city",
+    "item_type",
+    "price",
+    "auction_increment",
+    "num",
+    "valid_thru",
+    "freight_payer",
+    "post_fee",
+    "ems_fee",
+    "express_fee",
+    "has_invoice",
+    "has_warranty",
+    "approve_status",
+    "has_showcase",
+    "list_time",
+    "description",
+    "cateProps",
+    "postage_id",
+    "has_discount",
+    "modified",
+    "upload_fail_msg",
+    "picture_status",
+    "auction_point",
+    "picture",
+    "video",
+    "skuProps",
+    "inputPids",
+    "inputValues",
+    "outer_id",
+    "propAlias",
+    "auto_fill",
+    "num_id",
+    "local_cid",
+    "navigation_type",
+    "user_name",
+    "syncStatus",
+    "is_lighting_consigment",
+    "is_xinpin",
+    "foodparame",
+    "features",
+    "buyareatype",
+    "global_stock_type",
+    "global_stock_country",
+    "sub_stock_type",
+    "item_size",
+    "item_weight",
+    "sell_promise",
+    "custom_design_flag",
+    "wireless_desc",
+    "barcode",
+    "sku_barcode",
+    "newprepay",
+    "subtitle",
+    "cpv_memo",
+    "input_custom_cpv",
+    "qualification",
+    "add_qualification",
+    "o2o_bind_service",
+]
+
 # 第二行中文标题
 rows_cn = {
     "宝贝名称": "",
     "宝贝类目": "",
     "店铺类目": "",
-    "新旧程度": "",
+    "新旧程度": "1",
     "省": "福建",
     "城市": "泉州",
     "出售方式": "1",  # 一口价
@@ -244,37 +474,37 @@ rows_cn = {
     # 绿色,尺码:50,价格:30,数量:30
     # 30:30::1627207:28335;20549:29545;
     "销售属性组合": "",
-    "用户输入ID串": "",
-    "用户输入名 - 值对": "",
-    "商家编码": "",
+    "用户输入ID串": "13021751",
+    "用户输入名 - 值对": "", # 商家编码
+    "商家编码": "", # 商家编码
     "销售属性别名": "",
-    "代充类型": "",
-    "数字ID": "",
-    "本地ID": "",
-    "宝贝分类": "",
-    "用户名称": "",
-    "宝贝状态": "",
-    "闪电发货": "",
-    "新品": "",
+    "代充类型": "0",
+    "数字ID": "0",
+    "本地ID": "0",
+    "宝贝分类": "1", # 未选
+    "用户名称": "gfdonx", # 淘宝名称
+    "宝贝状态": "6", # 本地库存宝贝(不确定)
+    "闪电发货": "216",
+    "新品": "241",
     "食品专项": "",
-    "尺码库": "",
-    "采购地": "",
-    "库存类型": "",
+    "尺码库": "mysize_tp:-1;sizeGroupId:29148;sizeGroupName:欧码;sizeGroupType:men_shoes;tags:52290,50370",
+    "采购地": "0",
+    "库存类型": "-1",
     "国家地区": "",
-    "库存计数": "",
-    "物流体积": "",
-    "物流重量": "",
-    "退换货承诺": "",
+    "库存计数": "2",
+    "物流体积": "bulk:0.000000",
+    "物流重量": "1",
+    "退换货承诺": "0",
     "定制工具": "",
     "无线详情": "",
     "商品条形码": "",
     "sku 条形码": "",
-    "7天退货": "",
+    "7天退货": "1",
     "宝贝卖点": "",
     "属性值备注": "",
     "自定义属性值": "",
-    "商品资质": "",
-    "增加商品资质": "",
+    "商品资质": "%7B%20%20%7D",
+    "增加商品资质": "0",
     "关联线下服务": "",
 }
 
@@ -287,9 +517,32 @@ def function():
             print key
 
 
+def create_csv():
+    with open("Taobao/shoes.csv", 'wb') as csvfile:
+        fieldnames = ['first_name', 'last_name']
+        writer = csv.DictWriter(csvfile, fieldnames=rows_eng_list)
+        writer.writeheader()
+        writer.writerow(rows_eng_cn)
+
+        # 关cn中的值写入到value中
+        for key, value in rows_eng_cn.items():
+            for key1,value1 in rows_cn.items():
+                if value == key1:
+                    rows_eng_value[key] = value1
+
+        writer.writerow(rows_eng_value)
+
+
+
+        # writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
+        # writer.writerow({'first_name': 'Lovely', 'last_name': 'Spam'})
+        # writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
+
 def function_run():
     print("--------------------")
     function()
+    print("--------------------")
+    create_csv()
     print("--------------------")
 
 

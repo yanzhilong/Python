@@ -299,71 +299,7 @@ rows_cntitle = {
     "o2o_bind_service": "关联线下服务",
 }
 
-rows_eng_value = {
-    "title": "",
-    "cid": "",
-    "seller_cids": "",
-    "stuff_status": "",
-    "location_state": "",
-    "location_city": "",
-    "item_type": "",
-    "price": "",
-    "auction_increment": "",
-    "num": "",
-    "valid_thru": "",
-    "freight_payer": "",
-    "post_fee": "",
-    "ems_fee": "",
-    "express_fee": "",
-    "has_invoice": "",
-    "has_warranty": "",
-    "approve_status": "",
-    "has_showcase": "",
-    "list_time": "",
-    "description": "",
-    "cateProps": "",
-    "postage_id": "",
-    "has_discount": "",
-    "modified": "",
-    "upload_fail_msg": "",
-    "picture_status": "",
-    "auction_point": "",
-    "picture": "",
-    "video": "",
-    "skuProps": "",
-    "inputPids": "",
-    "inputValues": "",
-    "outer_id": "",
-    "propAlias": "",
-    "auto_fill": "",
-    "num_id": "",
-    "local_cid": "",
-    "navigation_type": "",
-    "user_name": "",
-    "syncStatus": "",
-    "is_lighting_consigment": "",
-    "is_xinpin": "",
-    "foodparame": "",
-    "features": "",
-    "buyareatype": "",
-    "global_stock_type": "",
-    "global_stock_country": "",
-    "sub_stock_type": "",
-    "item_size": "",
-    "item_weight": "",
-    "sell_promise": "",
-    "custom_design_flag": "",
-    "wireless_desc": "",
-    "barcode": "",
-    "sku_barcode": "",
-    "newprepay": "",
-    "subtitle": "",
-    "cpv_memo": "",
-    "input_custom_cpv": "",
-    "qualification": "",
-    "add_qualification": "",
-    "o2o_bind_service": "",
-}
+
 
 default_value = {
     "宝贝名称": "",
@@ -640,6 +576,139 @@ class Rowsitem:
         "o2o_bind_service": "关联线下服务",
     }
 
+    rows_eng_value = {
+        "title": "",
+        "cid": "",
+        "seller_cids": "",
+        "stuff_status": "",
+        "location_state": "",
+        "location_city": "",
+        "item_type": "",
+        "price": "",
+        "auction_increment": "",
+        "num": "",
+        "valid_thru": "",
+        "freight_payer": "",
+        "post_fee": "",
+        "ems_fee": "",
+        "express_fee": "",
+        "has_invoice": "",
+        "has_warranty": "",
+        "approve_status": "",
+        "has_showcase": "",
+        "list_time": "",
+        "description": "",
+        "cateProps": "",
+        "postage_id": "",
+        "has_discount": "",
+        "modified": "",
+        "upload_fail_msg": "",
+        "picture_status": "",
+        "auction_point": "",
+        "picture": "",
+        "video": "",
+        "skuProps": "",
+        "inputPids": "",
+        "inputValues": "",
+        "outer_id": "",
+        "propAlias": "",
+        "auto_fill": "",
+        "num_id": "",
+        "local_cid": "",
+        "navigation_type": "",
+        "user_name": "",
+        "syncStatus": "",
+        "is_lighting_consigment": "",
+        "is_xinpin": "",
+        "foodparame": "",
+        "features": "",
+        "buyareatype": "",
+        "global_stock_type": "",
+        "global_stock_country": "",
+        "sub_stock_type": "",
+        "item_size": "",
+        "item_weight": "",
+        "sell_promise": "",
+        "custom_design_flag": "",
+        "wireless_desc": "",
+        "barcode": "",
+        "sku_barcode": "",
+        "newprepay": "",
+        "subtitle": "",
+        "cpv_memo": "",
+        "input_custom_cpv": "",
+        "qualification": "",
+        "add_qualification": "",
+        "o2o_bind_service": "",
+    }
+
+    def rows_values(self):
+        self.rows_eng_value["title"] = self.title
+        self.rows_eng_value["cid"] = self.cid
+        self.rows_eng_value["seller_cids"] = self.seller_cids
+        self.rows_eng_value["stuff_status"] = self.stuff_status
+        self.rows_eng_value["location_state"] = self.location_state
+        self.rows_eng_value["location_city"] = self.location_city
+        self.rows_eng_value["item_type"] = self.item_type
+        self.rows_eng_value["price"] = self.price
+        self.rows_eng_value["auction_increment"] = self.auction_increment
+        self.rows_eng_value["num"] = self.num
+        self.rows_eng_value["valid_thru"] = self.valid_thru
+        self.rows_eng_value["freight_payer"] = self.freight_payer
+        self.rows_eng_value["post_fee"] = self.post_fee
+        self.rows_eng_value["ems_fee"] = self.ems_fee
+        self.rows_eng_value["express_fee"] = self.express_fee
+        self.rows_eng_value["has_invoice"] = self.has_invoice
+        self.rows_eng_value["has_warranty"] = self.has_warranty
+        self.rows_eng_value["approve_status"] = self.approve_status
+        self.rows_eng_value["has_showcase"] = self.has_showcase
+        self.rows_eng_value["list_time"] = self.list_time
+        self.rows_eng_value["description"] = self.description
+        self.rows_eng_value["cateProps"] = self.cateProps
+        self.rows_eng_value["postage_id"] = self.postage_id
+        self.rows_eng_value["has_discount"] = self.has_discount
+        self.rows_eng_value["modified"] = self.modified
+        self.rows_eng_value["upload_fail_msg"] = self.upload_fail_msg
+        self.rows_eng_value["picture_status"] = self.picture_status
+        self.rows_eng_value["auction_point"] = self.auction_point
+        self.rows_eng_value["picture"] = self.picture
+        self.rows_eng_value["video"] = self.video
+        self.rows_eng_value["skuProps"] = self.skuProps
+        self.rows_eng_value["inputPids"] = self.inputPids
+        self.rows_eng_value["inputValues"] = self.inputValues
+        self.rows_eng_value["outer_id"] = self.outer_id
+        self.rows_eng_value["propAlias"] = self.propAlias
+        self.rows_eng_value["auto_fill"] = self.auto_fill
+        self.rows_eng_value["num_id"] = self.num_id
+        self.rows_eng_value["local_cid"] = self.local_cid
+        self.rows_eng_value["navigation_type"] = self.navigation_type
+        self.rows_eng_value["user_name"] = self.user_name
+        self.rows_eng_value["syncStatus"] = self.syncStatus
+        self.rows_eng_value["is_lighting_consigment"] = self.is_lighting_consigment
+        self.rows_eng_value["is_xinpin"] = self.is_xinpin
+        self.rows_eng_value["foodparame"] = self.foodparame
+        self.rows_eng_value["features"] = self.features
+        self.rows_eng_value["buyareatype"] = self.buyareatype
+        self.rows_eng_value["global_stock_type"] = self.global_stock_type
+        self.rows_eng_value["global_stock_country"] = self.global_stock_country
+        self.rows_eng_value["sub_stock_type"] = self.sub_stock_type
+        self.rows_eng_value["item_size"] = self.item_size
+        self.rows_eng_value["item_weight"] = self.item_weight
+        self.rows_eng_value["sell_promise"] = self.sell_promise
+        self.rows_eng_value["custom_design_flag"] = self.custom_design_flag
+        self.rows_eng_value["wireless_desc"] = self.wireless_desc
+        self.rows_eng_value["barcode"] = self.barcode
+        self.rows_eng_value["sku_barcode"] = self.sku_barcode
+        self.rows_eng_value["newprepay"] = self.newprepay
+        self.rows_eng_value["subtitle"] = self.subtitle
+        self.rows_eng_value["cpv_memo"] = self.cpv_memo
+        self.rows_eng_value["input_custom_cpv"] = self.input_custom_cpv
+        self.rows_eng_value["qualification"] = self.qualification
+        self.rows_eng_value["add_qualification"] = self.add_qualification
+        self.rows_eng_value["o2o_bind_service"] = self.o2o_bind_service
+        return self.rows_eng_value
+
+
     # 初始化值
     def init_default_value(self):
         global default_value
@@ -708,6 +777,7 @@ class Rowsitem:
         self.o2o_bind_service = default_value["关联线下服务"]
 
 
+
 def function():
     print("测试是否有空值")
     for key, value in property_dict.items():
@@ -722,11 +792,15 @@ def create_csv():
     with open("Taobao/shoes.csv", 'wb') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=rowsitem.titles)  # 写入标题行
         writer.writeheader()
+        writer.writerow(rowsitem.rows_cn_titles)  # 写入中文行
+
+        # 写入标题
+        rowsitem.title = "标题"
 
 
 
-        # writer.writerow(rowsitem.rows_cn_titles)  # 写入中文行
-        # writer.writerow(rows_eng_value)
+        # 写入数据文件
+        writer.writerow(rowsitem.rows_values())
 
 
 
@@ -739,8 +813,8 @@ def ccreate_csvnew():
     csvfile = file('Taobao/shoes.csv', 'wb')
     writer = csv.writer(csvfile)
     writer.writerow(["version 1.00"])
-    writer.writerow(rowsitem.titles)
-    writer.writerows(rowsitem.rows_cn_titles)
+    # writer.writerow(rowsitem.titles)
+    # writer.writerows(rowsitem.rows_cn_titles)
     csvfile.close()
 
 
@@ -748,9 +822,10 @@ def function_run():
     print("--------------------")
     function()
     print("--------------------")
-    # create_csv()
+    # ccreate_csvnew()
+    create_csv()
     print("--------------------")
-    ccreate_csvnew()
+
 
 if __name__ == "__main__":
     function_run()

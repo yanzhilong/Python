@@ -233,7 +233,7 @@ rows_eng = {
     "o2o_bind_service": "",
 }
 
-rows_eng_cn = {
+rows_cntitle = {
     "title": "宝贝名称",
     "cid": "宝贝类目",
     "seller_cids": "店铺类目",
@@ -365,75 +365,7 @@ rows_eng_value = {
     "o2o_bind_service": "",
 }
 
-
-rows_eng_list = [
-    "title",
-    "cid",
-    "seller_cids",
-    "stuff_status",
-    "location_state",
-    "location_city",
-    "item_type",
-    "price",
-    "auction_increment",
-    "num",
-    "valid_thru",
-    "freight_payer",
-    "post_fee",
-    "ems_fee",
-    "express_fee",
-    "has_invoice",
-    "has_warranty",
-    "approve_status",
-    "has_showcase",
-    "list_time",
-    "description",
-    "cateProps",
-    "postage_id",
-    "has_discount",
-    "modified",
-    "upload_fail_msg",
-    "picture_status",
-    "auction_point",
-    "picture",
-    "video",
-    "skuProps",
-    "inputPids",
-    "inputValues",
-    "outer_id",
-    "propAlias",
-    "auto_fill",
-    "num_id",
-    "local_cid",
-    "navigation_type",
-    "user_name",
-    "syncStatus",
-    "is_lighting_consigment",
-    "is_xinpin",
-    "foodparame",
-    "features",
-    "buyareatype",
-    "global_stock_type",
-    "global_stock_country",
-    "sub_stock_type",
-    "item_size",
-    "item_weight",
-    "sell_promise",
-    "custom_design_flag",
-    "wireless_desc",
-    "barcode",
-    "sku_barcode",
-    "newprepay",
-    "subtitle",
-    "cpv_memo",
-    "input_custom_cpv",
-    "qualification",
-    "add_qualification",
-    "o2o_bind_service",
-]
-
-# 第二行中文标题
-rows_cn = {
+default_value = {
     "宝贝名称": "",
     "宝贝类目": "",
     "店铺类目": "",
@@ -508,6 +440,274 @@ rows_cn = {
     "关联线下服务": "",
 }
 
+
+class Rowsitem:
+    def __init__(self):
+        self.title = None
+        self.cid = None
+        self.seller_cids = None
+        self.stuff_status = None
+        self.location_state = None
+        self.location_city = None
+        self.item_type = None
+        self.price = None
+        self.auction_increment = None
+        self.num = None
+        self.valid_thru = None
+        self.freight_payer = None
+        self.post_fee = None
+        self.ems_fee = None
+        self.express_fee = None
+        self.has_invoice = None
+        self.has_warranty = None
+        self.approve_status = None
+        self.has_showcase = None
+        self.list_time = None
+        self.description = None
+        self.cateProps = None
+        self.postage_id = None
+        self.has_discount = None
+        self.modified = None
+        self.upload_fail_msg = None
+        self.picture_status = None
+        self.auction_point = None
+        self.picture = None
+        self.video = None
+        self.skuProps = None
+        self.inputPids = None
+        self.inputValues = None
+        self.outer_id = None
+        self.propAlias = None
+        self.auto_fill = None
+        self.num_id = None
+        self.local_cid = None
+        self.navigation_type = None
+        self.user_name = None
+        self.syncStatus = None
+        self.is_lighting_consigment = None
+        self.is_xinpin = None
+        self.foodparame = None
+        self.features = None
+        self.buyareatype = None
+        self.global_stock_type = None
+        self.global_stock_country = None
+        self.sub_stock_type = None
+        self.item_size = None
+        self.item_weight = None
+        self.sell_promise = None
+        self.custom_design_flag = None
+        self.wireless_desc = None
+        self.barcode = None
+        self.sku_barcode = None
+        self.newprepay = None
+        self.subtitle = None
+        self.cpv_memo = None
+        self.input_custom_cpv = None
+        self.qualification = None
+        self.add_qualification = None
+        self.o2o_bind_service = None
+        self.init_default_value()
+
+    titles = [
+        "title",
+        "cid",
+        "seller_cids",
+        "stuff_status",
+        "location_state",
+        "location_city",
+        "item_type",
+        "price",
+        "auction_increment",
+        "num",
+        "valid_thru",
+        "freight_payer",
+        "post_fee",
+        "ems_fee",
+        "express_fee",
+        "has_invoice",
+        "has_warranty",
+        "approve_status",
+        "has_showcase",
+        "list_time",
+        "description",
+        "cateProps",
+        "postage_id",
+        "has_discount",
+        "modified",
+        "upload_fail_msg",
+        "picture_status",
+        "auction_point",
+        "picture",
+        "video",
+        "skuProps",
+        "inputPids",
+        "inputValues",
+        "outer_id",
+        "propAlias",
+        "auto_fill",
+        "num_id",
+        "local_cid",
+        "navigation_type",
+        "user_name",
+        "syncStatus",
+        "is_lighting_consigment",
+        "is_xinpin",
+        "foodparame",
+        "features",
+        "buyareatype",
+        "global_stock_type",
+        "global_stock_country",
+        "sub_stock_type",
+        "item_size",
+        "item_weight",
+        "sell_promise",
+        "custom_design_flag",
+        "wireless_desc",
+        "barcode",
+        "sku_barcode",
+        "newprepay",
+        "subtitle",
+        "cpv_memo",
+        "input_custom_cpv",
+        "qualification",
+        "add_qualification",
+        "o2o_bind_service",
+    ]
+
+    rows_cn_titles = {
+        "title": "宝贝名称",
+        "cid": "宝贝类目",
+        "seller_cids": "店铺类目",
+        "stuff_status": "新旧程度",
+        "location_state": "省",
+        "location_city": "城市",
+        "item_type": "出售方式",
+        "price": "宝贝价格",
+        "auction_increment": "加价幅度",
+        "num": "宝贝数量",
+        "valid_thru": "有效期",
+        "freight_payer": "运费承担",
+        "post_fee": "平邮",
+        "ems_fee": "EMS",
+        "express_fee": "快递",
+        "has_invoice": "发票",
+        "has_warranty": "保修",
+        "approve_status": "放入仓库",
+        "has_showcase": "橱窗推荐",
+        "list_time": "开始时间",
+        "description": "宝贝描述",
+        "cateProps": "宝贝属性",
+        "postage_id": "邮费模版ID",
+        "has_discount": "会员打折",
+        "modified": "修改时间",
+        "upload_fail_msg": "上传状态",
+        "picture_status": "图片状态",
+        "auction_point": "返点比例",
+        "picture": "新图片",
+        "video": "视频",
+        "skuProps": "销售属性组合",
+        "inputPids": "用户输入ID串",
+        "inputValues": "用户输入名 - 值对",
+        "outer_id": "商家编码",
+        "propAlias": "销售属性别名",
+        "auto_fill": "代充类型",
+        "num_id": "数字ID",
+        "local_cid": "本地ID",
+        "navigation_type": "宝贝分类",
+        "user_name": "用户名称",
+        "syncStatus": "宝贝状态",
+        "is_lighting_consigment": "闪电发货",
+        "is_xinpin": "新品",
+        "foodparame": "食品专项",
+        "features": "尺码库",
+        "buyareatype": "采购地",
+        "global_stock_type": "库存类型",
+        "global_stock_country": "国家地区",
+        "sub_stock_type": "库存计数",
+        "item_size": "物流体积",
+        "item_weight": "物流重量",
+        "sell_promise": "退换货承诺",
+        "custom_design_flag": "定制工具",
+        "wireless_desc": "无线详情",
+        "barcode": "商品条形码",
+        "sku_barcode": "sku 条形码",
+        "newprepay": "7天退货",
+        "subtitle": "宝贝卖点",
+        "cpv_memo": "属性值备注",
+        "input_custom_cpv": "自定义属性值",
+        "qualification": "商品资质",
+        "add_qualification": "增加商品资质",
+        "o2o_bind_service": "关联线下服务",
+    }
+
+    # 初始化值
+    def init_default_value(self):
+        global default_value
+        self.title = default_value["宝贝名称"]
+        self.cid = default_value["宝贝类目"]
+        self.seller_cids = default_value["店铺类目"]
+        self.stuff_status = default_value["新旧程度"]
+        self.location_state = default_value["省"]
+        self.location_city = default_value["城市"]
+        self.item_type = default_value["出售方式"]
+        self.price = default_value["宝贝价格"]
+        self.auction_increment = default_value["加价幅度"]
+        self.num = default_value["宝贝数量"]
+        self.valid_thru = default_value["有效期"]
+        self.freight_payer = default_value["运费承担"]
+        self.post_fee = default_value["平邮"]
+        self.ems_fee = default_value["EMS"]
+        self.express_fee = default_value["快递"]
+        self.has_invoice = default_value["发票"]
+        self.has_warranty = default_value["保修"]
+        self.approve_status = default_value["放入仓库"]
+        self.has_showcase = default_value["橱窗推荐"]
+        self.list_time = default_value["开始时间"]
+        self.description = default_value["宝贝描述"]
+        self.cateProps = default_value["宝贝属性"]
+        self.postage_id = default_value["邮费模版ID"]
+        self.has_discount = default_value["会员打折"]
+        self.modified = default_value["修改时间"]
+        self.upload_fail_msg = default_value["上传状态"]
+        self.picture_status = default_value["图片状态"]
+        self.auction_point = default_value["返点比例"]
+        self.picture = default_value["新图片"]
+        self.video = default_value["视频"]
+        self.skuProps = default_value["销售属性组合"]
+        self.inputPids = default_value["用户输入ID串"]
+        self.inputValues = default_value["用户输入名 - 值对"]
+        self.outer_id = default_value["商家编码"]
+        self.propAlias = default_value["销售属性别名"]
+        self.auto_fill = default_value["代充类型"]
+        self.num_id = default_value["数字ID"]
+        self.local_cid = default_value["本地ID"]
+        self.navigation_type = default_value["宝贝分类"]
+        self.user_name = default_value["用户名称"]
+        self.syncStatus = default_value["宝贝状态"]
+        self.is_lighting_consigment = default_value["闪电发货"]
+        self.is_xinpin = default_value["新品"]
+        self.foodparame = default_value["食品专项"]
+        self.features = default_value["尺码库"]
+        self.buyareatype = default_value["采购地"]
+        self.global_stock_type = default_value["库存类型"]
+        self.global_stock_country = default_value["国家地区"]
+        self.sub_stock_type = default_value["库存计数"]
+        self.item_size = default_value["物流体积"]
+        self.item_weight = default_value["物流重量"]
+        self.sell_promise = default_value["退换货承诺"]
+        self.custom_design_flag = default_value["定制工具"]
+        self.wireless_desc = default_value["无线详情"]
+        self.barcode = default_value["商品条形码"]
+        self.sku_barcode = default_value["sku 条形码"]
+        self.newprepay = default_value["7天退货"]
+        self.subtitle = default_value["宝贝卖点"]
+        self.cpv_memo = default_value["属性值备注"]
+        self.input_custom_cpv = default_value["自定义属性值"]
+        self.qualification = default_value["商品资质"]
+        self.add_qualification = default_value["增加商品资质"]
+        self.o2o_bind_service = default_value["关联线下服务"]
+
+
 def function():
     print("测试是否有空值")
     for key, value in property_dict.items():
@@ -518,19 +718,15 @@ def function():
 
 
 def create_csv():
+    rowsitem = Rowsitem()
     with open("Taobao/shoes.csv", 'wb') as csvfile:
-        fieldnames = ['first_name', 'last_name']
-        writer = csv.DictWriter(csvfile, fieldnames=rows_eng_list)
+        writer = csv.DictWriter(csvfile, fieldnames=rowsitem.titles)  # 写入标题行
         writer.writeheader()
-        writer.writerow(rows_eng_cn)
 
-        # 关cn中的值写入到value中
-        for key, value in rows_eng_cn.items():
-            for key1,value1 in rows_cn.items():
-                if value == key1:
-                    rows_eng_value[key] = value1
 
-        writer.writerow(rows_eng_value)
+
+        # writer.writerow(rowsitem.rows_cn_titles)  # 写入中文行
+        # writer.writerow(rows_eng_value)
 
 
 
@@ -538,13 +734,23 @@ def create_csv():
         # writer.writerow({'first_name': 'Lovely', 'last_name': 'Spam'})
         # writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
 
+def ccreate_csvnew():
+    rowsitem = Rowsitem()
+    csvfile = file('Taobao/shoes.csv', 'wb')
+    writer = csv.writer(csvfile)
+    writer.writerow(["version 1.00"])
+    writer.writerow(rowsitem.titles)
+    writer.writerows(rowsitem.rows_cn_titles)
+    csvfile.close()
+
+
 def function_run():
     print("--------------------")
     function()
     print("--------------------")
-    create_csv()
+    # create_csv()
     print("--------------------")
-
+    ccreate_csvnew()
 
 if __name__ == "__main__":
     function_run()

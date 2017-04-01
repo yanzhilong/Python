@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-
-
-
 def function():
-    print("")
+    zhongguo = "中国"
+    print(zhongguo)
+    print("中国")
 
 
 def function_run():

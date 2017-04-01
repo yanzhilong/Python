@@ -408,13 +408,24 @@ class SooXieSpider(scrapy.Spider):
         si["shoeno"] = shoe.shoeno
         si["price"] = shoe.price
         si["sizes"] = shoe.sizes
+
+        for size in shoe.sizes:
+            print (u"尺码:" + size)
+
         si["popularity"] = shoe.popularity
         si["update"] = shoe.update
         si["colors"] = shoe.colors
+
+        for color in shoe.colors:
+            print (u"颜色:" + color)
+
         si["images"] = shoe.images
         si["property"] = self.addproperty(shoe.property)
+        for item in self.getproperty(shoe.property):
+            for key, value in item.items():
+                print("key:" + key + " value:" + value)
         si["market"] = shoe.market
-        self.showproper()
+        # self.showproper()
         yield si
 
     # 去除两多余的空行及空格
@@ -445,6 +456,20 @@ class SooXieSpider(scrapy.Spider):
                 # print("key2:" + key2)
                 progertyglo[key1].add(key2)
         return progertyglo
+
+    def getproperty(self, propertys):
+        progertys = []
+        for properitem in propertys:
+            # print type(properitem)
+            # chardit1 = chardet.detect(properitem)
+            # print chardit1['encoding']
+            items = properitem.split(": ")
+            if items is not None and len(items) == 2:
+                key = items[0]
+                value = items[1]
+                proitem = {key: value}
+                progertys.append(proitem)
+        return progertys
 
     def showproper(self):
         global count

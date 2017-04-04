@@ -4,8 +4,8 @@ import re
 from scrapy import FormRequest
 from sooxie.items import SooxieItem
 from enum import Enum
-import chardet
 import csv
+import chardet
 
 page = 1;
 count = 0;
@@ -316,6 +316,7 @@ class SooXie:
     def __init__(self):
         self.url = None  # 链接地址
         self.title = None  # 标题
+        self.mainimg = None  # 主图列表
         self.shoeno = None  # 货号
         self.price = None  # 价格
         self.popularity = None  # 人气
@@ -379,24 +380,47 @@ class SooXieSpider(scrapy.Spider):
         shoe.colors = response.css("div.xgr_3_h div.xgr_3p")[4].css("li::attr(datavalue)").extract()
         shoe.images = response.css("div.xgr_5 img.scrollLoading::attr(data-url)").extract()
 
-        key = response.url  # 这段是你要匹配的文本
-        p1 = "\\d+"  # 这是我们写的正则表达式规则，你现在可以不理解啥意思
-        pattern1 = re.compile(p1)  # 我们在编译这段正则表达式
-        matcher1 = re.search(pattern1, key)  # 在源文本中搜索符合正则表达式的部分
-        pageid = matcher1.group(0)  # 打印出来
+        # key = response.url  # 这段是你要匹配的文本
+        # p1 = "\\d+"  # 这是我们写的正则表达式规则，你现在可以不理解啥意思
+        # pattern1 = re.compile(p1)  # 我们在编译这段正则表达式
+        # matcher1 = re.search(pattern1, key)  # 在源文本中搜索符合正则表达式的部分
+        shoeid = self.get_shoe_id(response.url)
         # 请求头数据
         healurl = response.urljoin("/handler/getSXHandler.ashx")
         # 继续请求主要属性参数
         return [FormRequest(url=healurl,
-                            formdata={'p': "xd", 'id': pageid},
+                            formdata={'p': "xd", 'id': shoeid},
                             callback=self.getHead,
-                            meta={"shoe": shoe}), ]
+                            meta={"shoe": shoe, "shoeid": shoeid}), ]
 
     def getHead(self, response):
         shoe = response.meta["shoe"]
+        shoeid = response.meta["shoeid"]
         shoe.property = response.css("ul.attributes-list li::text").extract()
         if shoe.property is None or len(shoe.property) == 0:
             return
+        # 请求头数据
+        healurl = response.urljoin("/handler/loadImgHandler.ashx")
+        # 继续请求主要属性参数
+        return [FormRequest(url=healurl,
+                            formdata={'p': "xd", 'id': shoeid},
+                            callback=self.getImages,
+                            meta={"shoe": shoe}), ]
+    def get_shoe_id(self,url):
+        p1 = "\\d+"  # 这是我们写的正则表达式规则，你现在可以不理解啥意思
+        pattern1 = re.compile(p1)  # 我们在编译这段正则表达式
+        matcher1 = re.search(pattern1, url)  # 在源文本中搜索符合正则表达式的部分
+        pageid = matcher1.group(0)  # 打印出来
+        return pageid
+
+    def getImages(self, response):
+        shoe = response.meta["shoe"]
+        shoe.mainimg = response.css("img::attr(bimg)").extract()
+        return self.last_action(shoe)
+
+
+    def last_action(self,shoe):
+        # shoe = response.meta["shoe"]
         # print (u"解析完成")
         # print(type(shoe.property))
         # print(type(shoe.property[0]))
@@ -405,9 +429,12 @@ class SooXieSpider(scrapy.Spider):
         si = SooxieItem()
         si["url"] = shoe.url
         si["title"] = shoe.title
+        si["mainimg"] = shoe.mainimg
         si["shoeno"] = shoe.shoeno
         si["price"] = shoe.price
         si["sizes"] = shoe.sizes
+        # 获得尺码
+
 
         for size in shoe.sizes:
             print (u"尺码:" + size)
@@ -420,13 +447,22 @@ class SooXieSpider(scrapy.Spider):
             print (u"颜色:" + color)
 
         si["images"] = shoe.images
-        si["property"] = self.addproperty(shoe.property)
-        for item in self.getproperty(shoe.property):
-            for key, value in item.items():
-                print("key:" + key + " value:" + value)
+        # si["property"] = self.addproperty(shoe.property)
+
+        # 获得属性的字典
+        property_dict = self.getproperty(shoe.property)
+        si["property"] = property_dict
+        # si["property"] = shoe.property
+
+        # for item in self.getproperty(shoe.property):
+        #     for key, value in item.items():
+        #         print("key:" + key + " value:" + value)
+
+
         si["market"] = shoe.market
         # self.showproper()
         yield si
+
 
     # 去除两多余的空行及空格
     def cutnewline(self, source):
@@ -459,6 +495,7 @@ class SooXieSpider(scrapy.Spider):
 
     def getproperty(self, propertys):
         progertys = []
+
         for properitem in propertys:
             # print type(properitem)
             # chardit1 = chardet.detect(properitem)
@@ -466,9 +503,13 @@ class SooXieSpider(scrapy.Spider):
             items = properitem.split(": ")
             if items is not None and len(items) == 2:
                 key = items[0]
+                # key = unicode(items[0], "utf-8")
                 value = items[1]
                 proitem = {key: value}
                 progertys.append(proitem)
+                # print (chardet.detect(propertys[0]))
+                # print (chardet.detect(properitem))
+                # print(key + "  " + value)
         return progertys
 
     def showproper(self):

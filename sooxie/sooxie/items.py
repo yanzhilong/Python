@@ -12,6 +12,7 @@ class SooxieItem(scrapy.Item):
     # define the fields for your item here like:
     url = scrapy.Field()  # 网址
     title = scrapy.Field()  # 标题
+    mainimg = scrapy.Field()  # 主图
     shoeno = scrapy.Field()  # 货号
     price = scrapy.Field()  # 价格
     popularity = scrapy.Field()  # 人气

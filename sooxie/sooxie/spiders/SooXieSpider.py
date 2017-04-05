@@ -6,6 +6,7 @@ from sooxie.items import SooxieItem
 from enum import Enum
 import csv
 import chardet
+import taobao_csv_writer as taobao
 
 page = 1;
 count = 0;
@@ -312,20 +313,7 @@ def writerow():
 
 progertyglo = {}
 
-class SooXie:
-    def __init__(self):
-        self.url = None  # 链接地址
-        self.title = None  # 标题
-        self.mainimg = None  # 主图列表
-        self.shoeno = None  # 货号
-        self.price = None  # 价格
-        self.popularity = None  # 人气
-        self.update = None  # 更新时间
-        self.sizes = None  # 尺码
-        self.colors = None  # 颜色
-        self.images = None  # 图片链接地址
-        self.property = None  # 属性
-        self.market = None  # 市场
+
 
 
 class SooXieSpider(scrapy.Spider):
@@ -339,7 +327,7 @@ class SooXieSpider(scrapy.Spider):
         global count
         global page
         global baseurl
-        shoe = SooXie()
+        shoe = taobao.SooXie()
         print(u"处理当前页面" + str(page))
         # 得到所有的鞋子当前页的主页面数据
         shoeuls = response.css("ul.pro");
@@ -460,6 +448,8 @@ class SooXieSpider(scrapy.Spider):
 
 
         si["market"] = shoe.market
+
+        taobao.add_row(shoe)
         # self.showproper()
         yield si
 

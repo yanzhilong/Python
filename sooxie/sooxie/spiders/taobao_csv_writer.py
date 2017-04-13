@@ -833,6 +833,10 @@ def ccreate_csvnew():
 
 def add_row(sooxie):
     print (sooxie.sizes)
+    print (sooxie.title)
+    print (sooxie.colors)
+    print (sooxie.images)
+
     pass
 
 

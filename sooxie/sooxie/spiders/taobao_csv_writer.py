@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import csv
+import threading
 #  淘宝类目字典
 
 cid_dict = {"低帮鞋": "50012906", "高帮": "50012907", "凉鞋": "50011745", "拖鞋": "50011746"}
@@ -803,7 +804,8 @@ class SooXie:
 
 def create_csv():
     rowsitem = Rowsitem()
-    with open("Taobao/shoes.csv", 'wb') as csvfile:
+    # with open("Taobao/shoes.csv", 'wb') as csvfile:
+    with open("Taobao/shoes.csv", 'a+') as csvfile: #设置为追加
         writer = csv.DictWriter(csvfile, fieldnames=rowsitem.titles)  # 写入标题行
         writer.writeheader()
         writer.writerow(rowsitem.rows_cn_titles)  # 写入中文行
@@ -831,21 +833,186 @@ def ccreate_csvnew():
     # writer.writerows(rowsitem.rows_cn_titles)
     csvfile.close()
 
+
+def _add_row(rowsitem):
+    # with open("Taobao/shoes.csv", 'a+') as csvfile:  # 单独运行的时候
+    with open("sooxie/spiders/Taobao/shoes.csv", 'a+') as csvfile:  # 设置为追加,通过爬虫运行的时候
+        print "写入开始"
+        writer = csv.DictWriter(csvfile, fieldnames=rowsitem.titles)  # 写入标题行
+        # 写入标题
+        rowsitem.title = "标题"
+
+        # 写入数据文件
+        writer.writerow(rowsitem.rows_values())
+        csvfile.close()
+        print "写入结束"
+
+def operator_mainimg(mainimg):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+def operator_title(title):
+
+    return ""
+
+
 def add_row(sooxie):
-    print (sooxie.sizes)
-    print (sooxie.title)
-    print (sooxie.colors)
-    print (sooxie.images)
+    # 添加一行数据
+    rowsitem = Rowsitem()
+    rowsitem.title = sooxie.title;
+    
+    _add_row(rowsitem)
 
-    pass
+    # self.url = None  # 链接地址
+    # self.title = None  # 标题
+    # self.mainimg = None  # 主图列表
+    # self.shoeno = None  # 货号
+    # self.price = None  # 价格
+    # self.popularity = None  # 人气
+    # self.update = None  # 更新时间
+    # self.sizes = None  # 尺码
+    # self.colors = None  # 颜色
+    # self.images = None  # 图片链接地址
+    # self.property = None  # 属性
+    # self.market = None  # 市场
+    #
+    # self.title = None
+    # self.cid = None
+    # self.seller_cids = None
+    # self.stuff_status = None
+    # self.location_state = None
+    # self.location_city = None
+    # self.item_type = None
+    # self.price = None
+    # self.auction_increment = None
+    # self.num = None
+    # self.valid_thru = None
+    # self.freight_payer = None
+    # self.post_fee = None
+    # self.ems_fee = None
+    # self.express_fee = None
+    # self.has_invoice = None
+    # self.has_warranty = None
+    # self.approve_status = None
+    # self.has_showcase = None
+    # self.list_time = None
+    # self.description = None
+    # self.cateProps = None
+    # self.postage_id = None
+    # self.has_discount = None
+    # self.modified = None
+    # self.upload_fail_msg = None
+    # self.picture_status = None
+    # self.auction_point = None
+    # self.picture = None
+    # self.video = None
+    # self.skuProps = None
+    # self.inputPids = None
+    # self.inputValues = None
+    # self.outer_id = None
+    # self.propAlias = None
+    # self.auto_fill = None
+    # self.num_id = None
+    # self.local_cid = None
+    # self.navigation_type = None
+    # self.user_name = None
+    # self.syncStatus = None
+    # self.is_lighting_consigment = None
+    # self.is_xinpin = None
+    # self.foodparame = None
+    # self.features = None
+    # self.buyareatype = None
+    # self.global_stock_type = None
+    # self.global_stock_country = None
+    # self.sub_stock_type = None
+    # self.item_size = None
+    # self.item_weight = None
+    # self.sell_promise = None
+    # self.custom_design_flag = None
+    # self.wireless_desc = None
+    # self.barcode = None
+    # self.sku_barcode = None
+    # self.newprepay = None
+    # self.subtitle = None
+    # self.cpv_memo = None
+    # self.input_custom_cpv = None
+    # self.qualification = None
+    # self.add_qualification = None
+    # self.o2o_bind_service = None
+    # self.init_default_value()
 
+def add_row_test():
+    rowsitem = Rowsitem()
+    rowsitem.title = "测试标题";
+
+    threads = []
+    t1 = threading.Thread(target=_add_row, args=(rowsitem,))
+    threads.append(t1)
+    t2 = threading.Thread(target=_add_row, args=(rowsitem,))
+    threads.append(t2)
+    t3 = threading.Thread(target=_add_row, args=(rowsitem,))
+    threads.append(t3)
+    t4 = threading.Thread(target=_add_row, args=(rowsitem,))
+    threads.append(t4)
+    t5 = threading.Thread(target=_add_row, args=(rowsitem,))
+    threads.append(t5)
+    for t in threads:
+        t.setDaemon(True)
+        t.start()
+
+    t.join()
+    # _add_row(rowsitem)
 
 def function_run():
     print("--------------------")
     function()
     print("--------------------")
-    # ccreate_csvnew()
-    create_csv()
+    # create_csv()
+    add_row_test()
     print("--------------------")
 
 

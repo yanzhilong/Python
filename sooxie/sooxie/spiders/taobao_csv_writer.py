@@ -851,7 +851,7 @@ def _add_row(rowsitem):
 def get_cid(sooxie):
     # 返加宝贝类目
 
-    return ""
+    return cid_dict["低帮鞋"];
 
 def operator_title(title):
 
@@ -907,7 +907,8 @@ def add_row(sooxie):
     rowsitem = Rowsitem()
     rowsitem.title = sooxie.title;
     rowsitem.cid = get_cid(sooxie);  # 宝贝类目
-    rowsitem.seller_cids = "";  # 店铺类目固定
+    rowsitem.seller_cids = "";  # 店铺类目固定,可以为空
+    rowsitem.price = sooxie.price;  # 宝贝价格
 
 
 

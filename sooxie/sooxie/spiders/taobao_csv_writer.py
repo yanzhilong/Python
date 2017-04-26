@@ -802,21 +802,23 @@ class SooXie:
         self.property = None  # 属性
         self.market = None  # 市场
 
+
 def create_csv():
+    # 初始的时候创建csv
     rowsitem = Rowsitem()
-    # with open("Taobao/shoes.csv", 'wb') as csvfile:
-    with open("Taobao/shoes.csv", 'a+') as csvfile: #设置为追加
+    with open("Taobao/shoes.csv", 'wb') as csvfile:
+    # with open("Taobao/shoes.csv", 'a+') as csvfile: #设置为追加
         writer = csv.DictWriter(csvfile, fieldnames=rowsitem.titles)  # 写入标题行
         writer.writeheader()
         writer.writerow(rowsitem.rows_cn_titles)  # 写入中文行
 
         # 写入标题
-        rowsitem.title = "标题"
+        # rowsitem.title = "标题"
 
 
 
         # 写入数据文件
-        writer.writerow(rowsitem.rows_values())
+        #writer.writerow(rowsitem.rows_values())
 
 
 
@@ -839,8 +841,6 @@ def _add_row(rowsitem):
     with open("sooxie/spiders/Taobao/shoes.csv", 'a+') as csvfile:  # 设置为追加,通过爬虫运行的时候
         print "写入开始"
         writer = csv.DictWriter(csvfile, fieldnames=rowsitem.titles)  # 写入标题行
-        # 写入标题
-        rowsitem.title = "标题"
 
         # 写入数据文件
         writer.writerow(rowsitem.rows_values())
@@ -905,10 +905,10 @@ def operator_title(title):
 def add_row(sooxie):
     # 添加一行数据
     rowsitem = Rowsitem()
-    rowsitem.title = sooxie.title;
-    rowsitem.cid = get_cid(sooxie);  # 宝贝类目
-    rowsitem.seller_cids = "";  # 店铺类目固定,可以为空
-    rowsitem.price = sooxie.price;  # 宝贝价格
+    rowsitem.title = "asdf";
+    # rowsitem.cid = get_cid(sooxie);  # 宝贝类目
+    # rowsitem.seller_cids = "";  # 店铺类目固定,可以为空
+    # rowsitem.price = sooxie.price;  # 宝贝价格
 
 
 
@@ -916,21 +916,9 @@ def add_row(sooxie):
 
 
 
-    def __init__(self):
-        self.url = None  # 链接地址
-        self.title = None  # 标题
-        self.mainimg = None  # 主图列表
-        self.shoeno = None  # 货号
-        self.price = None  # 价格
-        self.popularity = None  # 人气
-        self.update = None  # 更新时间
-        self.sizes = None  # 尺码
-        self.colors = None  # 颜色
-        self.images = None  # 图片链接地址
-        self.property = None  # 属性
-        self.market = None  # 市场
 
-    # _add_row(rowsitem)
+    # 将处理好的数据与入csv
+    _add_row(rowsitem);
 
     # self.url = None  # 链接地址
     # self.title = None  # 标题
@@ -1034,10 +1022,10 @@ def add_row_test():
 
 def function_run():
     print("--------------------")
-    function()
+    #function()
     print("--------------------")
-    # create_csv()
-    add_row_test()
+    create_csv()
+    #add_row_test()
     print("--------------------")
 
 
